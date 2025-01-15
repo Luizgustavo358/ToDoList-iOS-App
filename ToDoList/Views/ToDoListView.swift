@@ -5,21 +5,30 @@
 //  Created by Luiz Gustavo Bragança dos Santos on 09/01/25.
 //
 
+import FirebaseFirestore
 import SwiftUI
 
 struct ToDoListView: View {
     @StateObject var viewModel = ToDoListViewViewModel()
-    
-    private let userId: String
+    @FirestoreQuery var items: [ToDoListItem]
     
     init(userId: String) {
-        self.userId = userId
+        // users/<id>/todos/<entries>
+        self._items = FirestoreQuery(collectionPath: "users/\(userId)/todos")
     }
     
     var body: some View {
         NavigationView {
             VStack {
-                
+                List(items) { item in
+                    ToDoListItemView(item: item)
+                        .swipeActions {
+                            Button("Delete") {
+                                viewModel.delete(id: item.id)
+                            }
+                            .background(Color.red)
+                        }
+                }
             }
             .navigationTitle("To Do List")
             .toolbar {
@@ -38,5 +47,5 @@ struct ToDoListView: View {
 }
 
 #Preview {
-    ToDoListView(userId: "")
+    ToDoListView(userId: "zxV5TeFvnbcdEWlX90dzDV3Yvtu1")
 }
