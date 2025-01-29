@@ -15,7 +15,7 @@ struct RegisterView: View {
             // Header
             HeaderView(title: "Register",
                        subtitle: "Start organizing todos",
-                       angle: -15,
+                       angle: 0,
                        background: .orange)
             
             Form {
