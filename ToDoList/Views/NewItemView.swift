@@ -48,9 +48,18 @@ struct NewItemView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     NewItemView(newItemPresented: Binding(get: {
         return true
     }, set: { _ in
     }))
+        .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    NewItemView(newItemPresented: Binding(get: {
+        return true
+    }, set: { _ in
+    }))
+        .environment(\.locale, Locale(identifier: "PT-BR"))
 }

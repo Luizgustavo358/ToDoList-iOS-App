@@ -82,6 +82,12 @@ struct ProfileView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     ProfileView()
+        .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    ProfileView()
+        .environment(\.locale, Locale(identifier: "PT-BR"))
 }

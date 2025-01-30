@@ -29,8 +29,16 @@ struct TLButton: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     TLButton(title: "Value", background: .pink) {
         // Action
     }
+    .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    TLButton(title: "Value", background: .pink) {
+        // Action
+    }
+    .environment(\.locale, Locale(identifier: "PT-BR"))
 }

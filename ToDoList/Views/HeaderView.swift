@@ -37,9 +37,18 @@ struct HeaderView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     HeaderView(title: "Title",
                subtitle: "Subtitle",
                angle: 15,
                background: .blue)
+        .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    HeaderView(title: "Título",
+               subtitle: "Subtítulo",
+               angle: 15,
+               background: .blue)
+        .environment(\.locale, Locale(identifier: "PT-BR"))
 }

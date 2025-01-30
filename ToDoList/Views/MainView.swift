@@ -37,6 +37,12 @@ struct MainView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     MainView()
+        .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    MainView()
+        .environment(\.locale, Locale(identifier: "PT-BR"))
 }

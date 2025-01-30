@@ -53,6 +53,12 @@ struct LoginView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     LoginView()
+        .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    LoginView()
+        .environment(\.locale, Locale(identifier: "PT-BR"))
 }

@@ -52,6 +52,12 @@ struct ToDoListView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     ToDoListView(userId: "zxV5TeFvnbcdEWlX90dzDV3Yvtu1")
+        .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    ToDoListView(userId: "zxV5TeFvnbcdEWlX90dzDV3Yvtu1")
+        .environment(\.locale, Locale(identifier: "PT-BR"))
 }

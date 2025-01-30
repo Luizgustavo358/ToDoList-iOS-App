@@ -14,7 +14,7 @@ struct RegisterView: View {
         VStack {
             // Header
             HeaderView(title: "Register",
-                       subtitle: "Start organizing todos",
+                       subtitle: "Start organizing ToDo's",
                        angle: 0,
                        background: .orange)
             
@@ -48,6 +48,12 @@ struct RegisterView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     RegisterView()
+        .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    RegisterView()
+        .environment(\.locale, Locale(identifier: "PT-BR"))
 }

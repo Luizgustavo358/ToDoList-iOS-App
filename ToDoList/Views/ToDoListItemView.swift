@@ -35,12 +35,24 @@ struct ToDoListItemView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     ToDoListItemView(item: .init(
         id: "123",
-        title: "Get milk",
+        title: "Get cheese",
         dueDate: Date().timeIntervalSince1970,
         createdDate: Date().timeIntervalSince1970,
         isDone: false)
     )
+    .environment(\.locale, Locale(identifier: "EN"))
+}
+
+#Preview("Portuguese") {
+    ToDoListItemView(item: .init(
+        id: "123",
+        title: "Comprar Queijo",
+        dueDate: Date().timeIntervalSince1970,
+        createdDate: Date().timeIntervalSince1970,
+        isDone: false)
+    )
+    .environment(\.locale, Locale(identifier: "PT-BR"))
 }
